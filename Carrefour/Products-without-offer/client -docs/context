@@ -1,0 +1,28 @@
+# Produto sem oferta
+
+**Contexto da problemática:** Durante o cadastro de produtos a esteira do processo passa por etapas que exigem a utilização de serviços terceiros, e que acarretam gastos para o Carrefour para construção do nosso catálogo. Ou Seja, todos os produtos cadastrados geram um custo.
+
+Para realizar o cadastro de produtos em catálogo é permitido que os sellers enviem as informações do produto a ser cadastrado contendo ou não os detalhes da oferta de produto (preço e estoque disponível para venda). Dessa forma, um produto pode ser cadastrado mesmo sem ter oferta disponível e consequentemente o produto não aparece no e-commerce, pois apenas produtos com oferta cadastrada são publicados. E portanto por não estarem sendo comercializados, não trazem nenhum lucro.
+
+**Objetivo**: Modificar o fluxo de cadastro de produtos, bloqueando o cadastro de produtos enviados sem oferta(preço e estoque) para que não gerem custos de enriquecimento com a omnilogic, cadastro na vtex, pesquisas de EAN em bases externas, etc.
+
+**Milestones esperados:**
+
+- Interceptação das informações de novos produtos a serem cadastrados antes da mirakl
+- Elaborar uma forma de bloquear o cadastro de um produto sem oferta na mirakl
+- Bloqueio do cadastro de produtos sem oferta, comunicando ao seller de forma intuitiva.
+
+**Casos de uso:**
+
+- Seller envia as informações de um produto com oferta (preço e estoque não zerados)
+    - Resultado: Cadastro concluído
+- Seller envia as informações de produto com preço porém sem estoque(valor nulo ou valor zero)
+    - Resultado: Cadastro incompleto/bloqueado
+- Seller envia as informações de produto com estoque porém sem preço(valor nulo ou valor zero)
+    - Resultado: Cadastro incompleto/bloqueado
+- Seller envia as informações do produto sem preço e sem estoque.
+    - Resultado: Cadastro incompleto/bloqueado
+- Seller envia as informações de produto com caracteres inesperados nos campos de preço e estoque
+    - Resultado: Cadastro incompleto/bloqueado
+- Seller envia as informações de estoque de forma separada (para um produto já cadastrado)
+    - Resultado: update de oferta com sucesso
