@@ -4,7 +4,7 @@
 
 **Client:** Carrefour Brasil
 **Industry:** Retail / E-commerce
-**Relationship Status:** Active
+**Relationship Status:** Inactive
 
 ## Active Projects
 
